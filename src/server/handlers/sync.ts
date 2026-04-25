@@ -4,6 +4,8 @@ import dayjs from 'dayjs'
 import { SDK } from '../utils/helpers'
 import { Method } from '../utils/enums'
 
+const DATA_BRANCH = 'main'
+
 export default {
   sync: async (request: Request, response: Response) => {
     const { accessToken, userData } = response.locals
@@ -18,7 +20,7 @@ export default {
       // https://docs.github.com/en/free-pro-team@latest/rest/reference/git#update-a-reference
       const ref = await SDK(
         Method.GET,
-        `/repos/${username}/${repo}/git/refs/heads/master`,
+        `/repos/${username}/${repo}/git/refs/heads/${DATA_BRANCH}`,
         accessToken
       )
 
@@ -66,10 +68,15 @@ export default {
 
       // Update a reference
       // https://docs.github.com/en/free-pro-team@latest/rest/reference/git#update-a-reference
-      await SDK(Method.POST, `/repos/${username}/${repo}/git/refs/heads/master`, accessToken, {
-        sha: commit.data.sha,
-        force: true,
-      })
+      await SDK(
+        Method.POST,
+        `/repos/${username}/${repo}/git/refs/heads/${DATA_BRANCH}`,
+        accessToken,
+        {
+          sha: commit.data.sha,
+          force: true,
+        }
+      )
 
       response.status(200).send({ message: 'Successly commited to takenote-data' })
     } catch (error) {

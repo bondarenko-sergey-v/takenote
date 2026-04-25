@@ -143,7 +143,7 @@ async function createInitialCommit(username: string, accessToken: string): Promi
   const noteCommit = {
     message: 'Initial commit',
     content: Buffer.from(JSON.stringify([scratchpadNote, welcomeNote], null, 2)).toString('base64'),
-    branch: 'master',
+    branch: 'main',
   }
   try {
     await SDK(
