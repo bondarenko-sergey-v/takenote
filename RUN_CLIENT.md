@@ -12,7 +12,7 @@ Start the client:
 npm run client
 ```
 
-Open `http://127.0.0.1:3000`.
+Open `http://127.0.0.1:2990`.
 
 Stop the client:
 

@@ -81,8 +81,8 @@ Go to your GitHub profile settings, and click on **Developer Settings**.
 Click the **New OAuth App** button.
 
 - **Application name**: TakeNote Development
-- **Homepage URL**: `http://localhost:3000`
-- **Authorization callback URL**: `http://localhost:3000/api/auth/callback`
+- **Homepage URL**: `http://localhost:2990`
+- **Authorization callback URL**: `http://localhost:2990/api/auth/callback`
 
 Create a `.env` file in the root of the project, and add the app's client ID and secret. Remove `DEMO` variable to enable GitHub integration.
 
@@ -104,13 +104,13 @@ npm i
 
 #### Development mode
 
-In the development environment, an Express server is running on port `5000` to handle all API calls, and a hot Webpack dev server is running on port `3000` for the React frontend. To run both of these servers concurrently, run the `dev` command.
+In the development environment, an Express server is running on port `5000` to handle all API calls, and a hot Webpack dev server is running on port `2990` for the React frontend. To run both of these servers concurrently, run the `dev` command.
 
 ```bash
 npm run dev
 ```
 
-Go to `localhost:3000` to view the app.
+Go to `localhost:2990` to view the app.
 
 > API requests will be proxied to port `5000` automatically.
 

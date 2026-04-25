@@ -32,7 +32,7 @@ module.exports = merge(common, {
     open: false,
     compress: true,
     hot: true,
-    port: 3000,
+    port: 2990,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
