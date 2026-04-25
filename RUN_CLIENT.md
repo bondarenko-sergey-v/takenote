@@ -1,12 +1,12 @@
 # Run Client
 
-1. Install dependencies.
+1. Install dependencies:
 
 ```bash
 npm install --cache /tmp/takenote-npm-cache
 ```
 
-2. Start the client.
+2. Start the client:
 
 ```bash
 npm run client
