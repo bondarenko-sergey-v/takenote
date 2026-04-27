@@ -56,12 +56,16 @@ TakeNote was created with TypeScript, React, Redux, Node, Express, Codemirror, W
 
 ## Demo Development
 
+TakeNote currently uses Dart Sass via `sass` and `sass-loader`; there is no `node-sass` dependency to migrate.
+
+Local development is verified on Node `20.19.6` and expected to work on the current Node 20 LTS line. Use `.nvmrc` or your preferred version manager before installing dependencies.
+
 Clone and install.
 
 ```bash
 git clone git@github.com:taniarascia/takenote
 cd takenote
-npm i
+npm ci
 ```
 
 Run a development server.
@@ -99,8 +103,17 @@ DEMO=true
 ```bash
 git clone git@github.com:taniarascia/takenote
 cd takenote
-npm i
+npm ci
 ```
+
+To verify a clean setup on a modern Node release, run:
+
+```bash
+npm ci
+npm run build
+```
+
+The commands above were validated on Node `20.19.6`.
 
 #### Development mode
 

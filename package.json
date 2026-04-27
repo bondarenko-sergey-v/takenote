@@ -42,6 +42,9 @@
     "url": "https://github.com/taniarascia/takenote/issues"
   },
   "homepage": "https://takenote.dev",
+  "engines": {
+    "node": ">=20 <21"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
