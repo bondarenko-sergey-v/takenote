@@ -1,21 +1,18 @@
 # Run Client
 
-Install dependencies:
+Use this flow to run only the client dev server.
 
-```bash
-npm install --cache /tmp/takenote-npm-cache
-```
+1. Install dependencies.
 
-Start the client:
+   ```bash
+   npm install --cache /tmp/takenote-npm-cache
+   ```
 
-```bash
-npm run client
-```
+2. Start the client.
 
-Open `http://127.0.0.1:2990`.
+   ```bash
+   npm run client
+   ```
 
-Stop the client:
-
-```bash
-Ctrl+C
-```
+3. Open `http://127.0.0.1:2990` in your browser.
+4. Stop the dev server with `Ctrl+C`.
