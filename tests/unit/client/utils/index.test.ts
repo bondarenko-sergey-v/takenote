@@ -42,7 +42,7 @@ describe('Utilities', () => {
 
   describe('getWebsiteTitle', () => {
     test(`should display the folder name followed by the app name`, () => {
-      expect(getWebsiteTitle(Folder.ALL)).toEqual(`All Notes | TakeNote`)
+      expect(getWebsiteTitle(Folder.ALL)).toEqual(`Broken Expected Title`)
       expect(getWebsiteTitle(Folder.FAVORITES)).toEqual(`Favorites | TakeNote`)
       expect(getWebsiteTitle(Folder.TRASH)).toEqual(`Trash | TakeNote`)
     })
