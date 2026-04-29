@@ -11,12 +11,13 @@ import {
   testIDShouldNotExist,
 } from './testHelperUtils'
 
-const addCategory = (categoryName: string) => {
+const addCategory = (categoryName: string, expectedCategoryName = categoryName) => {
+  // I've been here
   getTestID(TestID.ADD_CATEGORY_BUTTON).click()
   getTestID(TestID.NEW_CATEGORY_INPUT).type(categoryName)
   getTestID(TestID.NEW_CATEGORY_FORM).submit()
 
-  cy.contains(categoryName)
+  cy.contains(expectedCategoryName)
 }
 
 const collapseCategoryList = () => {

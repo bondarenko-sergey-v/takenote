@@ -7,7 +7,7 @@ import { LabelText } from '@resources/LabelText'
 import { TestID } from '@resources/TestID'
 import { CategoryOption } from '@/containers/CategoryOption'
 import { getCategories } from '@/selectors'
-import { shouldOpenContextMenu } from '@/utils/helpers'
+import { normalizeCategoryName, shouldOpenContextMenu } from '@/utils/helpers'
 import { ReactMouseEvent, ReactSubmitEvent, CategoryItem } from '@/types'
 import { useTempState } from '@/contexts/TempStateContext'
 import { setCategoryEdit, updateCategory, addCategory } from '@/slices/category'
@@ -114,9 +114,14 @@ export const CategoryList: React.FC = () => {
   }
 
   const onSubmitNewCategory = (event: ReactSubmitEvent): void => {
+    // I've been here
     event.preventDefault()
 
-    const category = { id: uuid(), name: tempCategoryName.trim(), draggedOver: false }
+    const category = {
+      id: uuid(),
+      name: normalizeCategoryName(tempCategoryName),
+      draggedOver: false,
+    }
 
     if (categories.find((cat) => cat.name === category.name) || category.name === '') {
       resetTempCategory()

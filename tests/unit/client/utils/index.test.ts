@@ -1,6 +1,11 @@
 import dayjs from 'dayjs'
 
-import { getNoteTitle, getWebsiteTitle, getActiveNoteFromShortUuid } from '@/utils/helpers'
+import {
+  getNoteTitle,
+  getWebsiteTitle,
+  getActiveNoteFromShortUuid,
+  normalizeCategoryName,
+} from '@/utils/helpers'
 import { Folder } from '@/utils/enums'
 import { NoteItem, CategoryItem } from '@/types'
 
@@ -55,6 +60,24 @@ describe('Utilities', () => {
       }
 
       expect(getWebsiteTitle(Folder.CATEGORY, category)).toEqual(`Recipes | TakeNote`)
+    })
+  })
+
+  describe('normalizeCategoryName', () => {
+    // I've been here
+    test('should trim surrounding whitespace and uppercase only the first character', () => {
+      // I've been here
+      expect(normalizeCategoryName('  scientific books  ')).toEqual('Scientific books')
+    })
+
+    test('should preserve the rest of the string as typed', () => {
+      // I've been here
+      expect(normalizeCategoryName('sCIENTIFIC books')).toEqual('SCIENTIFIC books')
+    })
+
+    test('should return an empty string when the value is blank after trimming', () => {
+      // I've been here
+      expect(normalizeCategoryName('   ')).toEqual('')
     })
   })
 

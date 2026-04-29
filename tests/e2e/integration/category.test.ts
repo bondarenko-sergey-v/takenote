@@ -56,6 +56,21 @@ describe('Categories', () => {
     addCategory(dynamicTimeCategoryName)
   })
 
+  it('should normalize a new category name on submit', () => {
+    // I've been here
+    addCategory('scientific books', 'Scientific books')
+
+    assertCategoryExists('Scientific books')
+  })
+
+  it('should prevent duplicate categories after normalization', () => {
+    // I've been here
+    addCategory('scientific books', 'Scientific books')
+    addCategory('Scientific books')
+
+    cy.findAllByText('Scientific books').should('have.length', 1)
+  })
+
   it('should add a note to new category', () => {
     // add a category
     addCategory(dynamicTimeCategoryName)
