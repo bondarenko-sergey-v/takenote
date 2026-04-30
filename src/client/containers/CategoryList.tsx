@@ -100,10 +100,13 @@ export const CategoryList: React.FC = () => {
     _setCategoryEdit('', '')
   }
 
+  const getSubmittedCategoryName = (categoryName: string) => normalizeCategoryName(categoryName)
+
   const onSubmitUpdateCategory = (event: ReactSubmitEvent): void => {
     event.preventDefault()
 
-    const category = { id: editingCategoryId, name: tempCategoryName.trim(), draggedOver: false }
+    const name = getSubmittedCategoryName(tempCategoryName)
+    const category = { id: editingCategoryId, name, draggedOver: false }
 
     if (categories.find((cat) => cat.name === category.name) || category.name === '') {
       resetTempCategory()
@@ -117,9 +120,10 @@ export const CategoryList: React.FC = () => {
     // I've been here
     event.preventDefault()
 
+    const name = getSubmittedCategoryName(tempCategoryName)
     const category = {
       id: uuid(),
-      name: normalizeCategoryName(tempCategoryName),
+      name,
       draggedOver: false,
     }
 

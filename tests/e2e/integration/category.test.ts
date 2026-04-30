@@ -98,6 +98,18 @@ describe('Categories', () => {
     assertCategoryExists(newCategoryName)
   })
 
+  it('should normalize a renamed category name on submit', () => {
+    const originalCategoryName = 'Category'
+    const newCategoryName = 'scientific books'
+
+    addCategory(originalCategoryName)
+    startEditingCategory(originalCategoryName)
+    renameCategory(originalCategoryName, newCategoryName)
+    defocusCategory(newCategoryName)
+
+    assertCategoryExists('Scientific books')
+  })
+
   it('should change category order', () => {
     const firstCategory = 'Source Category'
     const secondCategory = 'Destination Category'

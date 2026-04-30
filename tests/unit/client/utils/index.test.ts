@@ -70,6 +70,10 @@ describe('Utilities', () => {
       expect(normalizeCategoryName('  scientific books  ')).toEqual('Scientific books')
     })
 
+    test('should capitalize a submitted lowercase category name', () => {
+      expect(normalizeCategoryName('scientific books')).toEqual('Scientific books')
+    })
+
     test('should preserve the rest of the string as typed', () => {
       // I've been here
       expect(normalizeCategoryName('sCIENTIFIC books')).toEqual('SCIENTIFIC books')
