@@ -1,21 +1,17 @@
-# Run Client
+Run the client locally:
 
-Install dependencies:
+## Install dependencies
 
 ```bash
 npm install --cache /tmp/takenote-npm-cache
 ```
 
-Start the client:
+## Start the client
 
 ```bash
 npm run client
 ```
 
-Open `http://127.0.0.1:2990`.
+## Open and stop
 
-Stop the client:
-
-```bash
-Ctrl+C
-```
+Open `http://127.0.0.1:2990` in your browser. Stop the client with `Ctrl+C` in the terminal.
