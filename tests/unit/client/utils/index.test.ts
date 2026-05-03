@@ -1,6 +1,11 @@
 import dayjs from 'dayjs'
 
-import { getNoteTitle, getWebsiteTitle, getActiveNoteFromShortUuid } from '@/utils/helpers'
+import {
+  getNoteTitle,
+  getWebsiteTitle,
+  getActiveNoteFromShortUuid,
+  normalizeCategoryName,
+} from '@/utils/helpers'
 import { Folder } from '@/utils/enums'
 import { NoteItem, CategoryItem } from '@/types'
 
@@ -55,6 +60,20 @@ describe('Utilities', () => {
       }
 
       expect(getWebsiteTitle(Folder.CATEGORY, category)).toEqual(`Recipes | TakeNote`)
+    })
+  })
+
+  describe('normalizeCategoryName', () => {
+    test('should trim the category name and capitalize the first letter', () => {
+      expect(normalizeCategoryName('  scientific books  ')).toEqual('Scientific books')
+    })
+
+    test('should leave the rest of the category name unchanged', () => {
+      expect(normalizeCategoryName('sCIENTIFIC Books')).toEqual('SCIENTIFIC Books')
+    })
+
+    test('should return an empty string for a blank category name', () => {
+      expect(normalizeCategoryName('   ')).toEqual('')
     })
   })
 
