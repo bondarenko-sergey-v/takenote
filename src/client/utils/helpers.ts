@@ -25,6 +25,16 @@ export const getActiveNoteFromShortUuid = (notes: NoteItem[], shortUuid: string)
 export const getActiveCategory = (categories: CategoryItem[], activeCategoryId: string) =>
   categories.find(({ id }) => id === activeCategoryId)
 
+export const normalizeCategoryName = (name: string): string => {
+  const trimmedName = name.trim()
+
+  if (trimmedName === '') {
+    return ''
+  }
+
+  return `${trimmedName.charAt(0).toUpperCase()}${trimmedName.slice(1)}`
+}
+
 export const getNoteTitle = (text: string): string => {
   // Remove whitespace from both ends
   // Get the first n characters

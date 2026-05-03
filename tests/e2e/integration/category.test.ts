@@ -11,6 +11,7 @@ import {
   selectMoveToCategoryOption,
   startEditingCategory,
   renameCategory,
+  renameCategoryWithEnter,
   defocusCategory,
   moveCategory,
   openCategoryContextMenu,
@@ -52,8 +53,26 @@ describe('Categories', () => {
   })
 
   it('creates a new category with the current time', () => {
-    // Skipping for now due to
     addCategory(dynamicTimeCategoryName)
+  })
+
+  it('should submit a new category when pressing Enter', () => {
+    addCategory('Enter category')
+
+    assertCategoryExists('Enter category')
+  })
+
+  it('should normalize a new category name on submit', () => {
+    addCategory('scientific books', 'Scientific books')
+
+    assertCategoryExists('Scientific books')
+  })
+
+  it('should prevent duplicate categories after normalization', () => {
+    addCategory('scientific books', 'Scientific books')
+    addCategory('Scientific books')
+
+    cy.findAllByText('Scientific books').should('have.length', 1)
   })
 
   it('should add a note to new category', () => {
@@ -81,6 +100,17 @@ describe('Categories', () => {
     defocusCategory(newCategoryName)
 
     assertCategoryExists(newCategoryName)
+  })
+
+  it('should normalize a renamed category name on submit', () => {
+    const originalCategoryName = 'Category'
+    const newCategoryName = 'scientific books'
+
+    addCategory(originalCategoryName)
+    startEditingCategory(originalCategoryName)
+    renameCategoryWithEnter(newCategoryName)
+
+    assertCategoryExists('Scientific books')
   })
 
   it('should change category order', () => {
