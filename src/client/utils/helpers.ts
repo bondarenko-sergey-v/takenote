@@ -198,6 +198,16 @@ export const shouldOpenContextMenu = (clicked: Element) => {
   )
 }
 
+export const normalizeCategoryName = (name: string) => {
+  const trimmedCategoryName = name.trim()
+
+  if (trimmedCategoryName === '') {
+    return ''
+  }
+
+  return `${trimmedCategoryName.charAt(0).toUpperCase()}${trimmedCategoryName.slice(1)}`
+}
+
 export const getWebsiteTitle = (activeFolder: Folder, activeCategory?: CategoryItem) => {
   // Show category name if category is active
   if (activeFolder === Folder.CATEGORY && activeCategory) {

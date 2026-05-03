@@ -5,7 +5,7 @@ import { ReactSubmitEvent } from '@/types'
 
 export interface AddCategoryFormProps {
   dataTestID: string
-  submitHandler: (event: ReactSubmitEvent) => void
+  submitHandler: (event: ReactSubmitEvent, categoryName: string) => void
   changeHandler: (editingCategoryId: string, value: string) => void
   resetHandler: () => void
   editingCategoryId: string
@@ -21,7 +21,14 @@ export const AddCategoryForm: React.FC<AddCategoryFormProps> = ({
   tempCategoryName,
 }) => {
   return (
-    <form data-testid={dataTestID} className="category-form" onSubmit={submitHandler}>
+    <form
+      data-testid={dataTestID}
+      className="category-form"
+      onSubmit={(event) => {
+        event.preventDefault()
+        event.currentTarget.querySelector('input')?.blur()
+      }}
+    >
       <input
         data-testid={TestID.NEW_CATEGORY_INPUT}
         aria-label="Category name"
@@ -29,14 +36,17 @@ export const AddCategoryForm: React.FC<AddCategoryFormProps> = ({
         autoFocus
         maxLength={20}
         placeholder="New category..."
+        value={tempCategoryName}
         onChange={(event) => {
           changeHandler(editingCategoryId, event.target.value)
         }}
         onBlur={(event) => {
-          if (!tempCategoryName || tempCategoryName.trim() === '') {
+          const { value } = event.currentTarget
+
+          if (!value || value.trim() === '') {
             resetHandler()
           } else {
-            submitHandler(event)
+            submitHandler(event, value)
           }
         }}
       />

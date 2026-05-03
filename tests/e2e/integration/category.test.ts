@@ -56,6 +56,15 @@ describe('Categories', () => {
     addCategory(dynamicTimeCategoryName)
   })
 
+  it('should capitalize a new category name on submit', () => {
+    const typedCategoryName = 'scientific books'
+    const displayedCategoryName = 'Scientific books'
+
+    addCategory(typedCategoryName, displayedCategoryName)
+
+    assertCategoryExists(displayedCategoryName)
+  })
+
   it('should add a note to new category', () => {
     // add a category
     addCategory(dynamicTimeCategoryName)
@@ -73,14 +82,15 @@ describe('Categories', () => {
 
   it('should rename existing category after defocusing edit state', () => {
     const originalCategoryName = 'Category'
-    const newCategoryName = 'Renamed Category'
+    const typedCategoryName = 'renamed category'
+    const displayedCategoryName = 'Renamed category'
 
     addCategory(originalCategoryName)
     startEditingCategory(originalCategoryName)
-    renameCategory(originalCategoryName, newCategoryName)
-    defocusCategory(newCategoryName)
+    renameCategory(originalCategoryName, typedCategoryName)
+    defocusCategory(typedCategoryName)
 
-    assertCategoryExists(newCategoryName)
+    assertCategoryExists(displayedCategoryName)
   })
 
   it('should change category order', () => {
