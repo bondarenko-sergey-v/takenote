@@ -117,7 +117,6 @@ export const CategoryList: React.FC = () => {
   }
 
   const onSubmitNewCategory = (event: ReactSubmitEvent): void => {
-    // I've been here
     event.preventDefault()
 
     const name = getSubmittedCategoryName(tempCategoryName)

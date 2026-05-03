@@ -52,19 +52,22 @@ describe('Categories', () => {
   })
 
   it('creates a new category with the current time', () => {
-    // Skipping for now due to
     addCategory(dynamicTimeCategoryName)
   })
 
+  it('should submit a new category when pressing Enter', () => {
+    addCategory('Enter category')
+
+    assertCategoryExists('Enter category')
+  })
+
   it('should normalize a new category name on submit', () => {
-    // I've been here
     addCategory('scientific books', 'Scientific books')
 
     assertCategoryExists('Scientific books')
   })
 
   it('should prevent duplicate categories after normalization', () => {
-    // I've been here
     addCategory('scientific books', 'Scientific books')
     addCategory('Scientific books')
 

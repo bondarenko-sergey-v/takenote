@@ -26,7 +26,6 @@ export const getActiveCategory = (categories: CategoryItem[], activeCategoryId: 
   categories.find(({ id }) => id === activeCategoryId)
 
 export const normalizeCategoryName = (name: string): string => {
-  // I've been here
   const trimmedName = name.trim()
 
   if (trimmedName === '') {
