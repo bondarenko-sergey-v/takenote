@@ -31,7 +31,7 @@ interface CategoryOptionProps {
     event: React.MouseEvent<HTMLDivElement, MouseEvent> | ReactMouseEvent,
     categoryId?: string
   ) => void
-  onSubmitUpdateCategory: (event: ReactSubmitEvent) => void
+  onSubmitUpdateCategory: (event: ReactSubmitEvent, categoryName: string) => void
   optionsPosition: { x: number; y: number }
   optionsId: string
   setOptionsId: React.Dispatch<React.SetStateAction<string>>
@@ -121,8 +121,7 @@ export const CategoryOption: React.FC<CategoryOptionProps> = ({
             className="category-list-name"
             onSubmit={(event) => {
               event.preventDefault()
-              _setCategoryEdit('', '')
-              onSubmitUpdateCategory(event)
+              event.currentTarget.querySelector('input')?.blur()
 
               if (optionsId) setOptionsId('')
             }}
@@ -139,7 +138,7 @@ export const CategoryOption: React.FC<CategoryOptionProps> = ({
                 onChange={(event) => {
                   _setCategoryEdit(editingCategoryId, event.target.value)
                 }}
-                onBlur={(event) => onSubmitUpdateCategory(event)}
+                onBlur={(event) => onSubmitUpdateCategory(event, event.currentTarget.value)}
               />
             ) : (
               category.name

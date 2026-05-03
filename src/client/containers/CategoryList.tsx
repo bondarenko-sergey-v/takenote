@@ -100,12 +100,12 @@ export const CategoryList: React.FC = () => {
     _setCategoryEdit('', '')
   }
 
-  const onSubmitUpdateCategory = (event: ReactSubmitEvent): void => {
+  const onSubmitUpdateCategory = (event: ReactSubmitEvent, categoryName: string): void => {
     event.preventDefault()
 
     const category = {
       id: editingCategoryId,
-      name: normalizeCategoryName(tempCategoryName),
+      name: normalizeCategoryName(categoryName),
       draggedOver: false,
     }
 
@@ -117,12 +117,12 @@ export const CategoryList: React.FC = () => {
     }
   }
 
-  const onSubmitNewCategory = (event: ReactSubmitEvent): void => {
+  const onSubmitNewCategory = (event: ReactSubmitEvent, categoryName: string): void => {
     event.preventDefault()
 
     const category = {
       id: uuid(),
-      name: normalizeCategoryName(tempCategoryName),
+      name: normalizeCategoryName(categoryName),
       draggedOver: false,
     }
 
