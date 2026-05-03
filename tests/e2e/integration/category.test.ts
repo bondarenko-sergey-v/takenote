@@ -11,6 +11,7 @@ import {
   selectMoveToCategoryOption,
   startEditingCategory,
   renameCategory,
+  renameCategoryWithEnter,
   defocusCategory,
   moveCategory,
   openCategoryContextMenu,
@@ -107,8 +108,7 @@ describe('Categories', () => {
 
     addCategory(originalCategoryName)
     startEditingCategory(originalCategoryName)
-    renameCategory(originalCategoryName, newCategoryName)
-    defocusCategory(newCategoryName)
+    renameCategoryWithEnter(newCategoryName)
 
     assertCategoryExists('Scientific books')
   })

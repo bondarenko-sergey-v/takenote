@@ -121,7 +121,6 @@ export const CategoryOption: React.FC<CategoryOptionProps> = ({
             className="category-list-name"
             onSubmit={(event) => {
               event.preventDefault()
-              _setCategoryEdit('', '')
               onSubmitUpdateCategory(event)
 
               if (optionsId) setOptionsId('')

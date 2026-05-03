@@ -67,6 +67,10 @@ const renameCategory = (oldCategoryName: string, newCategoryName: string) => {
   getTestID(TestID.CATEGORY_EDIT).focus().clear().type(newCategoryName)
 }
 
+const renameCategoryWithEnter = (newCategoryName: string) => {
+  getTestID(TestID.CATEGORY_EDIT).focus().clear().type(`${newCategoryName}{enter}`)
+}
+
 const openCategoryContextMenu = (categoryName: string) => {
   cy.contains(categoryName).parent().rightclick()
 }
@@ -99,6 +103,7 @@ export {
   navigateToCategory,
   moveCategory,
   renameCategory,
+  renameCategoryWithEnter,
   selectMoveToCategoryOption,
   startEditingCategory,
   openCategoryContextMenu,
