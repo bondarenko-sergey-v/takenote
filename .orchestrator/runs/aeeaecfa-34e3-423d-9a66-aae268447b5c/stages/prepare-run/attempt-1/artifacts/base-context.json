@@ -1,0 +1,22 @@
+{
+  "runId": "aeeaecfa-34e3-423d-9a66-aae268447b5c",
+  "issue": {
+    "id": 4327787424,
+    "number": 1,
+    "title": "Simplify RUN_CLIENT.md - attempt 15",
+    "body": "Simplify RUN_CLIENT.md structure",
+    "state": "open",
+    "labels": [
+      "ready"
+    ],
+    "assignee": null,
+    "createdAt": "2026-04-25T10:11:21Z",
+    "updatedAt": "2026-04-26T06:45:31Z"
+  },
+  "repository": {
+    "owner": "bondarenko-sergey-v",
+    "repo": "takenote"
+  },
+  "branchName": "issue-1-simplify-runclientmd-attempt-15",
+  "workspacePath": "/tmp/prepare-run-d34da23d-bc52-4027-8b36-f2bc70140585"
+}
