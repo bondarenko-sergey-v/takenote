@@ -1,0 +1,53 @@
+{
+  "runId": "1a5e3272-8c27-42fb-906f-4a094b3ebda0",
+  "status": "running",
+  "currentStage": "make-pr",
+  "runStartedAt": "2026-04-26T08:26:30.879Z",
+  "stageAttempt": 1,
+  "reworkAttempt": 0,
+  "latestHandoffRecord": {
+    "runDir": "/tmp/prepare-run-e800aeee-db51-4af9-8c30-abfdf94ea322/.orchestrator/runs/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0",
+    "handoffPath": "/tmp/prepare-run-e800aeee-db51-4af9-8c30-abfdf94ea322/.orchestrator/runs/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0_handoff.jsonl",
+    "recordId": "000006_review_to_make-pr",
+    "sequence": 6,
+    "stage": "review"
+  },
+  "stages": {
+    "prepare-run": {
+      "attempts": 1,
+      "status": "success",
+      "updatedAt": "2026-04-26T08:26:36.176Z"
+    },
+    "assess": {
+      "attempts": 1,
+      "status": "success",
+      "updatedAt": "2026-04-26T08:26:36.185Z"
+    },
+    "plan": {
+      "attempts": 1,
+      "status": "success",
+      "updatedAt": "2026-04-26T08:26:36.189Z"
+    },
+    "develop": {
+      "attempts": 1,
+      "status": "success",
+      "updatedAt": "2026-04-26T08:27:32.735Z"
+    },
+    "quality-gate": {
+      "attempts": 1,
+      "status": "success",
+      "updatedAt": "2026-04-26T08:27:32.748Z"
+    },
+    "review": {
+      "attempts": 1,
+      "status": "success",
+      "updatedAt": "2026-04-26T08:27:32.754Z"
+    }
+  },
+  "timestampPrefix": "2026-04-26_08.26",
+  "runDirectory": "/tmp/prepare-run-e800aeee-db51-4af9-8c30-abfdf94ea322/.orchestrator/runs/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0",
+  "runSummaryPath": "/tmp/prepare-run-e800aeee-db51-4af9-8c30-abfdf94ea322/.orchestrator/runs/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0_run.json",
+  "handoffLedgerPath": "/tmp/prepare-run-e800aeee-db51-4af9-8c30-abfdf94ea322/.orchestrator/runs/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0/2026-04-26_08.26_1a5e3272-8c27-42fb-906f-4a094b3ebda0_handoff.jsonl",
+  "createdAt": "2026-04-26T08:26:36.175Z",
+  "updatedAt": "2026-04-26T08:27:32.754Z"
+}
